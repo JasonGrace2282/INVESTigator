@@ -21,7 +21,7 @@ from case.models import Case
 DATA = [
     {
         "lead": "John Doe",
-        "name": "Mystery of the missing hat",
+        "name": "Mystery of the Hat",
         "description": "",
     },
     {
