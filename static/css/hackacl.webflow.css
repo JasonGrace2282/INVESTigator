@@ -19,37 +19,6 @@
   display: flex;
 }
 
-.w-users-userloginformwrapper {
-  margin-bottom: 0;
-  padding-left: 20px;
-  padding-right: 20px;
-  position: relative;
-}
-
-.w-users-userformheader {
-  text-align: center;
-}
-
-.w-users-userformbutton {
-  text-align: center;
-  width: 100%;
-}
-
-.w-users-userformfooter {
-  justify-content: space-between;
-  margin-top: 12px;
-  display: flex;
-}
-
-.w-users-userformerrorstate {
-  margin-left: 20px;
-  margin-right: 20px;
-  position: absolute;
-  top: 100%;
-  left: 0%;
-  right: 0%;
-}
-
 .w-users-usersignupformwrapper {
   margin-bottom: 0;
   padding-left: 20px;
@@ -59,6 +28,10 @@
 
 .w-users-userformsuccessstate {
   display: none;
+}
+
+.w-users-userformheader {
+  text-align: center;
 }
 
 .w-checkbox {
@@ -104,6 +77,26 @@
 
 .w-checkbox-input--inputType-custom.w--redirected-focus {
   box-shadow: 0 0 3px 1px #3898ec;
+}
+
+.w-users-userformbutton {
+  text-align: center;
+  width: 100%;
+}
+
+.w-users-userformfooter {
+  justify-content: space-between;
+  margin-top: 12px;
+  display: flex;
+}
+
+.w-users-userformerrorstate {
+  margin-left: 20px;
+  margin-right: 20px;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  right: 0%;
 }
 
 .w-users-usersignupverificationmessage {
@@ -1500,6 +1493,257 @@ body {
   line-height: 150%;
 }
 
+.sign-in-form-container---brix {
+  z-index: 20;
+  border-top: 1px solid #d9dbe9;
+  border-bottom: 1px solid #d9dbe9;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.sign-in-form-container---brix.preview-page {
+  z-index: 20;
+  position: relative;
+}
+
+.section-7 {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.section-7.cloneables-listing {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.full-split---brix {
+  background-color: #f3f1ff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-height: 71vh;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  display: flex;
+  position: relative;
+}
+
+.input---brix {
+  color: #170f49;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 500px;
+  min-height: 66px;
+  margin-bottom: 0;
+  padding: 32px 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  transition: opacity .2s, color .2s, border-color .2s;
+  box-shadow: 0 2px 6px rgba(19, 18, 66, .07);
+}
+
+.input---brix:hover, .input---brix:focus {
+  color: #4a3aff;
+  border-color: #4a3aff;
+}
+
+.input---brix::placeholder {
+  color: #6f6c90;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.input---brix.password-icon---brix {
+  background-image: url('../images/icon-2-input-sign-in-page-webflow-cloneable-template-brix-templates.svg');
+  background-position: 90%;
+  background-repeat: no-repeat;
+  padding-right: 60px;
+}
+
+.input---brix.password-icon---brix:hover, .input---brix.password-icon---brix:focus {
+  background-image: url('../images/icon-2-input-on-sign-in-page-webflow-cloneable-template-brix-templates.svg');
+}
+
+.input---brix.name-icon---brix {
+  background-image: url('../images/icon-1-input-sign-in-page-webflow-cloneable-template-brix-templates.svg');
+  background-position: 90%;
+  background-repeat: no-repeat;
+  padding-right: 60px;
+}
+
+.input---brix.name-icon---brix:hover, .input---brix.name-icon---brix:focus {
+  background-image: url('../images/icon-1-input-on-sign-in-page-webflow-cloneable-template-brix-templates.svg');
+}
+
+.log-in-button---brix {
+  color: #fff;
+  text-align: center;
+  background-color: #4a3aff;
+  border-radius: 80px;
+  justify-content: center;
+  align-items: center;
+  padding: 23px 40px;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: none;
+  transition: transform .3s, box-shadow .3s, background-color .3s;
+  display: flex;
+  box-shadow: 0 3px 12px rgba(74, 58, 255, .12);
+}
+
+.log-in-button---brix:hover {
+  background-color: #3527d8;
+  transform: translate(0, -2px);
+  box-shadow: 0 4px 10px rgba(74, 58, 255, .15);
+}
+
+.forgot-password---brix {
+  color: #6f6c90;
+  text-align: center;
+  margin: 24px auto;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.forgot-password---brix:hover {
+  color: #4a3aff;
+}
+
+.sign-in-form-block---brix {
+  width: 100%;
+}
+
+.sign-in-form-block---brix.sign-in-v3---brix {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: center;
+  align-items: center;
+  max-width: 45%;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.or-text-block---brix {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.social-button---brix {
+  color: #6f6c90;
+  background-color: #fff;
+  border: 1px solid #eff0f6;
+  border-radius: 500px;
+  justify-content: center;
+  align-items: center;
+  max-height: 66px;
+  margin-bottom: 12px;
+  padding: 20px;
+  text-decoration: none;
+  transition: box-shadow .2s, border-color .2s;
+  display: flex;
+  box-shadow: 0 1px 6px rgba(19, 18, 66, .07);
+}
+
+.social-button---brix:hover {
+  border-color: #4a3aff;
+  box-shadow: 0 3px 10px rgba(19, 18, 66, .12);
+}
+
+.social-button---brix.last-item---brix {
+  margin-bottom: 0;
+}
+
+.sign-in-bg---brix {
+  z-index: -1;
+  background-color: #f3f1ff;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+
+.sign-in-bg---brix.right {
+  right: -100%;
+}
+
+.cloneable-container-default {
+  background-color: #fff;
+  border-top: 1px solid #d9dbe9;
+  border-bottom: 1px solid #d9dbe9;
+  min-height: 624px;
+  position: relative;
+  overflow: hidden;
+  transform: translate(0);
+}
+
+.social-small-logo---brix {
+  margin-right: 18px;
+}
+
+.succes-message---brix {
+  color: #fff;
+  background-color: #4a3aff;
+  border-radius: 16px;
+}
+
+.full-container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-in-form-v2---brix {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 100px 40px;
+  display: flex;
+}
+
+.or-divider---brix {
+  align-items: center;
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.stroke---brix {
+  background-color: #eff0f6;
+  width: 100%;
+  height: 1px;
+}
+
+.input-div---brix {
+  margin-bottom: 32px;
+}
+
+.sign-in-form-wrapper---brix {
+  width: 100%;
+  display: flex;
+}
+
+.error-message---brix {
+  color: #ff3f42;
+  text-align: center;
+  background-color: #ffecec;
+  border-radius: 16px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.body-4 {
+  background-color: var(--color);
+}
+
+.heading-3 {
+  color: var(--black);
+  font-weight: 600;
+}
+
 @media screen and (max-width: 991px) {
   .terminal_component {
     width: 80%;
@@ -1532,6 +1776,39 @@ body {
   .card-headline.dark-card-headline._6col-card {
     width: 65%;
   }
+
+  .full-split---brix {
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .input---brix.password-icon---brix, .input---brix.name-icon---brix {
+    background-position: 96%;
+  }
+
+  .log-in-button---brix {
+    background-position: 57%;
+  }
+
+  .sign-in-form-block---brix.sign-in-v3---brix {
+    max-width: 100%;
+    display: block;
+  }
+
+  .sign-in-form-v2---brix {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .sign-in-v2-illustration---brix {
+    max-width: 130%;
+    margin: 60px;
+  }
+
+  .sign-in-form-wrapper---brix {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1559,6 +1836,40 @@ body {
 
   .card-headline.dark-card-headline._6col-card {
     width: auto;
+  }
+
+  .full-split---brix {
+    display: flex;
+  }
+
+  .log-in-button---brix {
+    background-position: 60%;
+    padding-left: 34px;
+    padding-right: 34px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .sign-in-form-block---brix.sign-in-v3---brix {
+    order: -1;
+    max-width: 100%;
+  }
+
+  .full-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sign-in-form-v2---brix {
+    padding: 64px 24px;
+  }
+
+  .sign-in-v2-illustration---brix {
+    max-width: 80%;
+  }
+
+  .input-div---brix {
+    margin-bottom: 24px;
   }
 }
 
@@ -1609,6 +1920,21 @@ body {
     background-image: none;
     background-position: 50%;
     background-size: cover;
+  }
+
+  .log-in-button---brix {
+    background-position: 66%;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  .social-button---brix {
+    font-size: 16px;
+  }
+
+  .full-container {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
