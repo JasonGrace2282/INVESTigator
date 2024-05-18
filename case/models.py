@@ -6,41 +6,21 @@ from django.db import models
 
 class Case(models.Model):
     name = models.CharField(max_length=1024)
-    description = models.CharField(max_length=4096)
+    description = models.CharField(blank=True, max_length=4096)
     lead = models.CharField(default="John Doe", max_length=512)
+
+    def __str__(self):
+        return f"{type(self).__name__} ({self.name})"
 
 
 class Evidence(models.Model):
     case = models.ForeignKey(
         Case,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        verbose_name="evidences",
     )
 
-    # for contacting witness
     email = models.EmailField(blank=True)
-
-
-class Image(models.Model):
-    evidence = models.ForeignKey(
-        Evidence,
-        on_delete=models.CASCADE
-    )
-
+    text = models.TextField(blank=True, max_length=4096)
     image = models.ImageField()
-
-
-def validate_video(value):
-    path = Path(value.name)
-    allowed = {"mp4", "mov"}
-    if not path.suffix in allowed:
-        raise ValidationError(f"Only files in {allowed} are allowed")
-
-
-class Video(models.Model):
-    evidence = models.ForeignKey(
-        Evidence,
-        on_delete=models.CASCADE
-    )
-
     video = models.FileField()
-

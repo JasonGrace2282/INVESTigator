@@ -1,4 +1,4 @@
-import django.http as http
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, reverse
 from django.views.generic import FormView, TemplateView
 
@@ -6,8 +6,8 @@ from .forms import SubmitEvidenceForm
 from .models import Case
 
 
-class Dashboard(TemplateView):
-    template_name = "index.html"
+class Dashboard(LoginRequiredMixin, TemplateView):
+    template_name = "dashboard.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -15,29 +15,19 @@ class Dashboard(TemplateView):
         context["user"] = self.request.user
         return context
 
-    def get(self, request, *args, **kwargs):
-        if self.request.user.is_anonymous:
-            return redirect(reverse("login"))
-        return super().get(request, *args, **kwargs)
 
-
-class CaseView(TemplateView):
-    def get_template_names(self) -> list[str]:
-        base = "-caseview.html"
-        return ["detective"+base] if self.request.user.is_superuser else ["witness"+base]
-
-    def get_context_data(self, case_num: int, **kwargs):
+class CaseLoginRequiredMixin(LoginRequiredMixin):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["case"] = Case.objects.get(pk=case_num)
+        context["case"] = Case.objects.get(pk=self.kwargs["case_num"])
+        context["user"] = self.request.user
+        return context
 
 
-class SubmitEvidence(FormView):
+class CaseDescription(CaseLoginRequiredMixin, TemplateView):
+    template_name = "description.html"
+
+
+class SubmitEvidence(CaseLoginRequiredMixin, FormView):
     template_name = "submit-evidence.html"
     form_class = SubmitEvidenceForm
-
-    def get_context_data(self, **kwargs):
-        if (pk := self.request.GET.get("case")) is None:
-            raise http.Http404
-        context = super().get_context_data(**kwargs)
-        context["case"] = Case.objects.get(pk=pk)
-        return context
