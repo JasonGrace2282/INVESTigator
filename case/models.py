@@ -1,6 +1,3 @@
-from pathlib import Path
-
-from django.core.exceptions import ValidationError
 from django.db import models
 
 

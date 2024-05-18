@@ -1,5 +1,4 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, reverse
 from django.views.generic import FormView, TemplateView
 
 from .forms import SubmitEvidenceForm
