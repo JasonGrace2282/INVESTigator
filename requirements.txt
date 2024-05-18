@@ -1,6 +1,16 @@
 asgiref==3.8.1
+cfgv==3.4.0
+distlib==0.3.8
 Django==5.0.6
 django-filter==24.2
 djangorestframework==3.15.1
+filelock==3.14.0
+identify==2.5.36
 Markdown==3.6
+nodeenv==1.8.0
+platformdirs==4.2.2
+pre-commit==3.7.1
+PyYAML==6.0.1
+setuptools==69.5.1
 sqlparse==0.5.0
+virtualenv==20.26.2
