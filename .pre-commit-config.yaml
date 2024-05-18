@@ -1,6 +1,6 @@
 default_stages: [commit, push]
 fail_fast: false
-exclude: ^tin/(static/.*vendor|.*migrations)
+exclude: ^investigator/(static/.*vendor|.*migrations)
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -26,10 +26,10 @@ repos:
     hooks:
       - id: ruff
         args: [ "--fix", "--exit-non-zero-on-fix" ]
-        files: ^tin/.*
+        files: ^investigator/.*
         name: ruff lint
       - id: ruff-format
-        files: ^tin/.*
+        files: ^investigator/.*
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:
