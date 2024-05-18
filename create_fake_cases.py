@@ -3,6 +3,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import lorem
+
 if not __file__.endswith("shell.py"):
     subprocess.call(
         [
@@ -22,17 +24,17 @@ DATA = [
     {
         "lead": "John Doe",
         "name": "Mystery of the Hat",
-        "description": "",
+        "description": lorem.paragraph(),
     },
     {
         "lead": "Billy Bob",
         "name": "Mall Mystery",
-        "description": "",
+        "description": lorem.paragraph(),
     },
     {
         "lead": "Geoffery Jack",
         "name": "Murder of the Cat",
-        "description": "",
+        "description": lorem.paragraph(),
     }
 ]
 
