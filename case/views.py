@@ -13,7 +13,7 @@ class CaseView(TemplateView):
 
 class SubmitEvidence(FormView):
     template_name = "submit-evidence.html"
-    form_class = FormView
+    form_class = SubmitEvidenceForm
 
     def get_context_data(self, **kwargs):
         if (pk := self.request.GET.get("case")) is None:
