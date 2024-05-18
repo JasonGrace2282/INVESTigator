@@ -4,6 +4,7 @@ distlib==0.3.8
 Django==5.0.6
 filelock==3.14.0
 identify==2.5.36
+lorem==0.1.1
 nodeenv==1.8.0
 pillow==10.3.0
 platformdirs==4.2.2

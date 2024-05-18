@@ -55,8 +55,10 @@
           <p class="paragraph-2">{{ case.description }}</p>
         </div>
         <div class="div-block-32 w-clearfix">
-          <a href="#" class="button w-button">Submit Evidence</a>
-          <a href="#" class="button highlighted-button w-button">View Evidence</a>
+          <a href="evidence" class="button w-button">Submit Evidence</a>
+          {% if user.is_superuser %}
+            <a href="evidence/view" class="button highlighted-button w-button">View Evidence</a>
+          {% endif %}
         </div>
       </div>
     </div>

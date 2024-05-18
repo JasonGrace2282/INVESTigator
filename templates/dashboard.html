@@ -27,8 +27,8 @@
       <div class="container-fluid">
         <div class="div-block-26">
           <div class="div-block-27"><img src="images/favicon-32x32_1favicon-32x32.png" loading="lazy" alt="" class="image-8">
-            <a href="#" class="nav-link-4 w-nav-link">Dashboard</a>
-            <a href="#" class="nav-link-4 w-nav-link">Explore</a>
+            <a href="{% url 'dashboard' %}" class="nav-link-4 w-nav-link">Dashboard</a>
+            <a href="{% url 'dashboard' %}" class="nav-link-4 w-nav-link">Explore</a>
           </div>
           <nav role="navigation" class="nav-menu-2 w-nav-menu">
             <a href="#" class="nav-link-4 w-nav-link">{{ user.username }}</a><img src="images/favicon-32x32_1favicon-32x32.png" loading="lazy" alt="" class="image-8">
