@@ -14,10 +14,10 @@ class Evidence(models.Model):
     case = models.ForeignKey(
         Case,
         on_delete=models.CASCADE,
-        verbose_name="evidences",
+        related_name="evidences",
     )
 
     email = models.EmailField(blank=True)
     text = models.TextField(blank=True, max_length=4096)
-    image = models.ImageField()
-    video = models.FileField()
+    image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)

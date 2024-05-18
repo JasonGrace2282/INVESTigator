@@ -24,12 +24,12 @@ DATA = [
     {
         "lead": "John Doe",
         "name": "Mystery of the Hat",
-        "description": lorem.paragraph(),
+        "description": "\n".join((lorem.paragraph(), lorem.paragraph())),
     },
     {
         "lead": "Billy Bob",
         "name": "Mall Mystery",
-        "description": lorem.paragraph(),
+        "description": "\n".join((lorem.paragraph(), lorem.paragraph())),
     },
     {
         "lead": "Geoffery Jack",
