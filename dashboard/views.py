@@ -13,3 +13,6 @@ class Dashboard(TemplateView):
         print(self.request.user)
         return super().get(request, *args, **kwargs)
 
+class DetectiveCase(TemplateView):
+    template_name = "detective-case.html"
+
