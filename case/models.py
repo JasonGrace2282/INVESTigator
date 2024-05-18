@@ -7,7 +7,7 @@ from django.db import models
 class Case(models.Model):
     name = models.CharField(max_length=1024)
     description = models.CharField(max_length=4096)
-    lead = models.CharField(max_length=512)
+    lead = models.CharField(default="John Doe", max_length=512)
 
 
 class Evidence(models.Model):
