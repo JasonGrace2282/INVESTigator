@@ -27,6 +27,6 @@ Run the following, one line at a time
 git clone https://github.com/JasonGrace2282/INVESTigator
 cd INVESTigator
 python3 -m pip3 install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+python3 manage.py migrate
+python3 manage.py runserver
 ```
