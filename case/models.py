@@ -7,6 +7,7 @@ from django.db import models
 class Case(models.Model):
     name = models.CharField(max_length=1024)
     description = models.CharField(max_length=4096)
+    lead = models.CharField(max_length=512)
 
 
 class Evidence(models.Model):
@@ -15,7 +16,7 @@ class Evidence(models.Model):
         on_delete=models.CASCADE
     )
 
-    # for contacting user
+    # for contacting witness
     email = models.EmailField(blank=True)
 
 

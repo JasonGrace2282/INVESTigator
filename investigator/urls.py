@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("", include("dashboard.urls")),
+    path("", include("case.urls")),
     path("admin/", admin.site.urls),
     path("login/", include("auth.urls")),
 ]
