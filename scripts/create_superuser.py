@@ -1,4 +1,21 @@
+import subprocess
+import sys
+from pathlib import Path
+
 from django.contrib.auth import get_user_model
+
+if not __file__.endswith("shell.py"):
+    subprocess.call(
+        [
+            sys.executable,
+            Path(__file__).resolve().parent / "manage.py",
+            "shell",
+            "-c",
+            open(__file__).read(),
+        ]
+    )
+    exit()
+
 
 User = get_user_model()
 

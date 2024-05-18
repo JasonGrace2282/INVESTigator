@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-import os
 import subprocess
 import sys
+from pathlib import Path
 
 if not __file__.endswith("shell.py"):
     subprocess.call(
         [
             sys.executable,
-            os.path.join(os.path.dirname(__file__), "manage.py"),
+            Path(__file__).resolve().parent / "manage.py",
             "shell",
             "-c",
             open(__file__).read(),
         ]
     )
     exit()
+
 
 from case.models import Case
 
