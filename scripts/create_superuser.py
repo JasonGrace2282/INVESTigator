@@ -8,7 +8,7 @@ if not __file__.endswith("shell.py"):
     subprocess.call(
         [
             sys.executable,
-            Path(__file__).resolve().parent / "manage.py",
+            Path(__file__).resolve().parent.parent / "manage.py",
             "shell",
             "-c",
             open(__file__).read(),
