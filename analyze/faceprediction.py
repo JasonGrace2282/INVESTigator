@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-from pathlib import Path
-=======
 import time
->>>>>>> 9ad5766 (face prediction)
+from pathlib import Path
 
 import cv2
 import numpy as np
