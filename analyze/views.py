@@ -2,6 +2,7 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 
+from .audioanalysis import audioanalysis
 from .faceprediction import prediction
 from .license import read_frame
 from .models import Case
@@ -23,6 +24,8 @@ class DataDashboard(TemplateView):
             context["videopath"] = vpath
         if (ipath := settings.MEDIA_ROOT / evidence.image.name).exists():
             context["imagepath"] = ipath
+        if (apath := settings.MEDIA_ROOT / evidence.audio.name).exists():
+            context["audiopath"] = apath
         return context
 
 
@@ -43,4 +46,11 @@ def read_licenses(request) -> JsonResponse:
         "timestamps": timestamps,
         "plates": plates,
         "pvalues": pvalues,
+    })
+
+def audio_processing(request) -> JsonResponse:
+    path = request.GET["path"]
+    print(f"Processing {path}")
+    return JsonResponse({
+        "sentiment": audioanalysis(path)
     })

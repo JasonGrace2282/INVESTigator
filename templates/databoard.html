@@ -69,11 +69,7 @@
             <h4 class="heading-4" id="license-header"></h4>
           </div>
           <div class="div-block-41 audio">
-            <h4 class="heading-4">Audio behavior: Nervous</h4>
-            <h4 class="heading-4">Breakdown:</h4>
-            <h4 class="heading-4">0s-[Sad]-60s</h4>
-            <h4 class="heading-4">61s-[Nervous]-120s</h4>
-            <h4 class="heading-4"> 121s-[Anxious]-180s</h4>
+            <h4 class="heading-4" id="audio-header"></h4>
           </div>
         </div>
       </div>
@@ -91,6 +87,16 @@
         },
         "json"
       );
+
+    $.get(
+        "{% url 'audio-sentiment' %}",
+        { "path": "{{ audiopath }}" },
+        function(response){
+          $( "#audio-header" ).html(response["sentiment"]);
+        },
+        "json"
+      );
+
     </script>
   {% endif %}
 
