@@ -44,6 +44,10 @@ class SubmitEvidence(CaseLoginRequiredMixin, FormView):
         case.evidences.create(**form.cleaned_data)
         return super().form_valid(form)
 
+    def post(self, *args, **kwargs):
+        print(self.request.POST)
+        return super().post(*args, **kwargs)
+
 
 class EvidenceView(CaseLoginRequiredMixin, ListView):
     template_name = "view-evidence.html"

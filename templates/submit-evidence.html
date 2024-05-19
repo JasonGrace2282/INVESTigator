@@ -29,7 +29,7 @@
             <a href="#" class="nav-link-4 w-nav-link">Explore</a>
           </div>
           <nav role="navigation" class="nav-menu-2 w-nav-menu">
-            <a href="#" class="nav-link-4 w-nav-link">John Doe</a>
+            <a href="#" class="nav-link-4 w-nav-link">{{ user.username }}</a>
           </nav>
         </div>
       </div>
@@ -53,12 +53,17 @@
           <h4 class="modal-heading">Write Evidence</h4>
         </div>
         <div class="w-form">
-          <form method="POST" id="email-form" name="email-form" data-name="Email Form" redirect="/" data-redirect="/" method="get" data-wf-page-id="664979aa77fe864424a35cf4" data-wf-element-id="eaf2939e-9abd-21a8-e8d5-352913936b7c">
+          <form method="POST" id="email-form" name="email-form" data-name="Email Form" action="{% url 'add-evidence' case.id %}" data-wf-page-id="664979aa77fe864424a35cf4" data-wf-element-id="eaf2939e-9abd-21a8-e8d5-352913936b7c">
             {% csrf_token %}
-            <div><label for="input-2" class="ms-input-label">Text Input</label><input class="ms-input w-input" maxlength="256" name="input1" data-name="input1" placeholder="e.g. Name" type="text" id="input-2" data-ms-member="name" required=""></div>
+            <div><label for="input-2" class="ms-input-label">Email</label>
+              <input class="ms-input w-input" maxlength="256" name="email" data-name="email" placeholder="e.g. bob@gmail.com" type="text" id="input-2" data-ms-member="name" required=""></div>
             <div><label for="email-5" class="ms-input-label w-clearfix">Writeup</label>
-              <div class="ms-input-wrap"><textarea class="ms-input ms-text-area w-input" maxlength="5000" name="input21" data-name="input21" placeholder="e.g. Found suspect at..." id="input21" data-ms-member="FIELD_ID" required=""></textarea></div>
-            </div><input type="submit" data-wait="Please wait..." class="button w-button" value="Submit"><input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Images"><input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Videos">
+              <div class="ms-input-wrap">
+                <textarea class="ms-input ms-text-area w-input" maxlength="5000" name="text" data-name="text" placeholder="e.g. Found suspect at..." id="input21" data-ms-member="FIELD_ID"></textarea>
+              </div>
+            </div><input type="submit" data-wait="Please wait..." class="button w-button" value="Submit">
+            <input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Images">
+            <input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Videos">
           </form>
           <div class="w-form-done">
             <div>Thank you! Your submission has been received!</div>
