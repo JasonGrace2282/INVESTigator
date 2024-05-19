@@ -12,7 +12,7 @@ web app with the ability to:
 ![swappy-20240519_125729](https://github.com/JasonGrace2282/INVESTigator/assets/63871606/4995e4a8-0dd8-4017-8b27-1d68df5318d4)
 ![swappy-20240519_125808](https://github.com/JasonGrace2282/INVESTigator/assets/63871606/c631fd4b-f3f5-4be2-ae87-96de855abb39)
 ![swappy-20240519_125853](https://github.com/JasonGrace2282/INVESTigator/assets/63871606/0f3c1437-8baf-447d-9a1b-5c0d6fba8d33)
-![image](https://github.com/JasonGrace2282/INVESTigator/assets/110117391/0e00992d-1673-449e-8f60-c34f72d67778)
+![Image of License Analysis](https://github.com/JasonGrace2282/INVESTigator/assets/110117391/0e00992d-1673-449e-8f60-c34f72d67778)
 
 
 
