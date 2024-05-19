@@ -45,12 +45,8 @@ class SubmitEvidence(CaseLoginRequiredMixin, FormView):
         return super().form_valid(form)
 
 
-class Test(TemplateView):
-    template_name = "log-in.html"
-
-
 class EvidenceView(CaseLoginRequiredMixin, ListView):
-    template_name = "evidence.html"
+    template_name = "view-evidence.html"
 
     def get_queryset(self):
         case = Case.objects.get(pk=self.kwargs["case_num"])
