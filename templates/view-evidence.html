@@ -55,7 +55,6 @@
         </div>
         <div class="div-block-32">
           <a href="{% url 'dashboard' %}" class="button w-button">Back</a>
-          <a href="#" class="button highlighted-button w-button">Analyze Data</a>
           <a href="#" data-w-id="28434f47-e025-3b9a-b52c-13d56515c517" class="button highlighted-button w-button">Witness Evidence</a>
         </div>
       </div>
@@ -98,7 +97,7 @@
         </div>
         <div class="div-block-36">
           {% for obj in object_list %}
-            <a href="view/{{ obj.pk }}" class="link-block-6 w-inline-block">
+            <a href="{% url 'databoard' case.id obj.pk %}" class="link-block-6 w-inline-block">
               <div data-w-id="63e170bf-7b02-c737-06c1-bc93e7770eae" class="div-block-35">
                 <div>{{ obj.email }}</div>
                 <div class="div-block-34">

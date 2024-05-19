@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
@@ -12,7 +14,7 @@ def preprocess(image_path: str):
     return image_reshaped
 
 def prediction(image_path: str):
-    model = load_model('facial_expression_model.h5')
+    model = load_model(Path(__file__).resolve().parent / 'facial_expression_model.h5')
     image = preprocess(image_path)
     prediction = model.predict(image)
     label = np.argmax(prediction)

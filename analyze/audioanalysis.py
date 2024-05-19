@@ -10,8 +10,6 @@ from pydub import AudioSegment
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
-from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
-                          pipeline)
 
 
 def clean_text(text):
@@ -38,7 +36,6 @@ def prediction(text):
     # Label encoder
     label_encoder = LabelEncoder()
     df['sentiment'] = label_encoder.fit_transform(df['sentiment'])
-    num_classes = len(label_encoder.classes_)
     with open('label_encoder.pickle', 'wb') as handle:
         pickle.dump(label_encoder, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -53,25 +50,25 @@ def prediction(text):
         prediction = model.predict(padded_sequence)
     return label_encoder.inverse_transform(np.argmax(prediction, axis=1))[0]
 
+
 def speech_to_text_local(audio_file):
     recognizer = sr.Recognizer()
     with sr.AudioFile(audio_file) as source:
         audio = recognizer.record(source)
     try:
-        text = recognizer.recognize_google(audio)
-        return text
-    except sr.RequestError as e:
+        return recognizer.recognize_google(audio)
+    except sr.RequestError:
         return f"RequestError on Sentiment"
     except sr.UnknownValueError:
         return "Not recognizable"
 
-def audioanalysis(file_path):
+
+def audioanalysis(file_path) -> str:
     transcribed_text = speech_to_text_local(file_path)
-    #print(f"Transcribed Text: {transcribed_text}")
     cleaned_text = clean_text(transcribed_text)
-    #print(f"Cleaned Text: {cleaned_text}")
-    print(prediction(cleaned_text))
-    return prediction(cleaned_text)
+    p = prediction(cleaned_text)
+    return p
+
 
 def split_audio(input_file):
     audio = AudioSegment.from_file(input_file)
@@ -90,11 +87,12 @@ def split_audio(input_file):
         end += 60000
         arr.append(output_file)
     return arr
+
+
 def runpredictions(input_file):
     os.makedirs("output_segments", exist_ok=True)
     arr = []
     for audio in split_audio(input_file):
         arr.append(audioanalysis(audio))
-    print(arr)
     return arr, audioanalysis(input_file)
 

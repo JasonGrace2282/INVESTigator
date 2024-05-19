@@ -1,5 +1,32 @@
-{% if videodata %}
-  {{ videodata }}
-{% else %}
-  None
-{% endif %}
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    {% if imagepath %}
+      $.get(
+        "{% url 'face-analysis' %}",
+        { "path": "{{ imagepath }}" },
+        function(response){
+          $( "#test" ).html(response["emotion"]);
+        },
+        "json"
+      );
+    {% endif %}
+  </script>
+</head>
+
+<body>
+  {% if videopath %}
+    {{ videopath }}
+
+  {% else %}
+    None
+  {% endif %}
+  <br>
+  {% if imagepath %}
+    {{ imagepath }}
+  {% else %}
+    None
+  {% endif %}
+  <div class="face-data"></div>
+  <p id="test"></p>
+</body>

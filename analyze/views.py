@@ -1,5 +1,4 @@
-from pathlib import Path
-
+from django.conf import settings
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 
@@ -20,14 +19,28 @@ class DataDashboard(TemplateView):
         context["case"] = case
         context["evidence"] = evidence
 
-        if Path(evidence.video.path).exists():
-            context["videopath"] = evidence.video.path
-        if Path(evidence.image.path).exists():
-            context["facepath"] = evidence.image.path
+        if (vpath := settings.MEDIA_ROOT / evidence.video.name).exists():
+            context["videopath"] = vpath
+        if (ipath := settings.MEDIA_ROOT / evidence.image.name).exists():
+            context["imagepath"] = ipath
         return context
 
 
-def face_prediction_view(request, path: str) -> JsonResponse:
+def face_prediction_view(request) -> JsonResponse:
+    path = request.GET["path"]
     return JsonResponse({
         "emotion": prediction(path)
+    })
+
+def read_licenses(request) -> JsonResponse:
+    path = request.GET["path"]
+    timestamps, plates, pvalues = sorted(
+        zip(*read_frame(path)),
+        key=lambda *_, p: p,  # type: ignore
+        reversed=True
+    )
+    return JsonResponse({
+        "timestamps": timestamps,
+        "plates": plates,
+        "pvalues": pvalues,
     })
