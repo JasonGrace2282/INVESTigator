@@ -8,7 +8,7 @@ from .models import Case
 
 
 class DataDashboard(TemplateView):
-    template_name = "databoard.html"
+    template_name = "data-dashboard.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
