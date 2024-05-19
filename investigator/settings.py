@@ -55,6 +55,10 @@ LOGIN_REDIRECT_URL = reverse_lazy("dashboard")
 
 ROOT_URLCONF = 'investigator.urls'
 
+MEDIA_DIR = BASE_DIR / "media"
+
+MEDIA_URL = "media/"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

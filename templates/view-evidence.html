@@ -25,11 +25,11 @@
       <div class="container-fluid">
         <div class="div-block-26">
           <div class="div-block-27">
-            <a href="#" class="nav-link-4 w-nav-link">Dashboard</a>
-            <a href="#" class="nav-link-4 w-nav-link">Explore</a>
+            <a href="{% url 'dashboard' %}" class="nav-link-4 w-nav-link">Dashboard</a>
+            <a href="{% url 'dashboard' %}" class="nav-link-4 w-nav-link">Explore</a>
           </div>
           <nav role="navigation" class="nav-menu-2 w-nav-menu">
-            <a href="#" class="nav-link-4 w-nav-link">John Doe</a>
+            <a href="#" class="nav-link-4 w-nav-link">{{ user.username }}</a>
           </nav>
         </div>
       </div>
@@ -54,8 +54,9 @@
           <p class="paragraph-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus pretium dui sit amet sagittis. Ut sed augue ut eros tincidunt faucibus. Nunc lacinia, mi scelerisque condimentum interdum, libero mauris laoreet mauris, egestas porttitor eros sem et nulla. Aenean faucibus eu magna vitae lacinia. Suspendisse et hendrerit ipsum. Donec placerat felis mattis nunc tempor, non lacinia turpis imperdiet. Donec in libero egestas, vestibulum nulla nec, rutrum dolor. Curabitur finibus orci sapien, sit amet aliquam lorem auctor et. Nullam eleifend nec turpis vehicula ornare. Integer eu felis est.</p>
         </div>
         <div class="div-block-32">
-          <a href="{% url 'description' %}" class="button w-button">Back</a>
-          <a href="#" data-w-id="28434f47-e025-3b9a-b52c-13d56515c517" class="button highlighted-button w-button">Incoming Submissions</a>
+          <a href="{% url 'dashboard' %}" class="button w-button">Back</a>
+          <a href="#" class="button highlighted-button w-button">Analyze Data</a>
+          <a href="#" data-w-id="28434f47-e025-3b9a-b52c-13d56515c517" class="button highlighted-button w-button">Witness Evidence</a>
         </div>
       </div>
       <div class="modal-content submissions">
@@ -97,7 +98,7 @@
         </div>
         <div class="div-block-36">
           {% for obj in object_list %}
-            <a href="{{ obj.pk }}" class="link-block-6 w-inline-block">
+            <a href="view/{{ obj.pk }}" class="link-block-6 w-inline-block">
               <div data-w-id="63e170bf-7b02-c737-06c1-bc93e7770eae" class="div-block-35">
                 <div>{{ obj.email }}</div>
                 <div class="div-block-34">

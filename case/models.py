@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -21,3 +22,6 @@ class Evidence(models.Model):
     text = models.TextField(blank=True, max_length=4096)
     image = models.ImageField(blank=True)
     video = models.FileField(blank=True)
+
+    def __str__(self):
+        return f"{type(self).__name__} for {self.case!s}"

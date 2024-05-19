@@ -24,11 +24,11 @@
       <div class="container-fluid">
         <div class="div-block-26">
           <div class="div-block-27">
-            <a href="#" class="nav-link-4 w-nav-link">Dashboard</a>
-            <a href="#" class="nav-link-4 w-nav-link">Explore</a>
+            <a href="{% url 'dashboard' %}" class="nav-link-4 w-nav-link">Dashboard</a>
+            <a href="{% url 'dashboard' %}" class="nav-link-4 w-nav-link">Explore</a>
           </div>
           <nav role="navigation" class="nav-menu-2 w-nav-menu">
-            <a href="#" class="nav-link-4 w-nav-link">John Doe</a>
+            <a href="#" class="nav-link-4 w-nav-link">{{ user.username }}</a>
           </nav>
         </div>
       </div>
@@ -47,12 +47,12 @@
       <a href="view-evidence.html" class="button back1 w-button">Back</a>
       <div class="modal-content evidence">
         <div>
-          <h1 class="modal-heading">Mall Mystery</h1>
+          <h1 class="modal-heading">{{ case.name }}</h1>
         </div>
         <div class="description">
-          <h4 class="modal-heading">Subject: Reporting witness suspect</h4>
-          <h4 class="modal-heading">From: Anonymous</h4>
-          <p class="paragraph-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus pretium dui sit amet sagittis. Ut sed augue ut eros tincidunt faucibus. Nunc lacinia, mi scelerisque condimentum interdum, libero mauris laoreet mauris, egestas porttitor eros sem et nulla. Aenean faucibus eu magna vitae lacinia. Suspendisse et hendrerit ipsum. Donec placerat felis mattis nunc tempor, non lacinia turpis imperdiet. Donec in libero egestas, vestibulum nulla nec, rutrum dolor. Curabitur finibus orci sapien, sit amet aliquam lorem auctor et. Nullam eleifend nec turpis vehicula ornare. Integer eu felis est.</p>
+          <h4 class="modal-heading">Subject: {{ case.name }}</h4>
+          <h4 class="modal-heading">From: {{ evidence.email }}</h4>
+          <p class="paragraph-2">{{ evidence.text }}</p>
         </div>
         <div class="photo-evidence">
           <div class="div-block-37">
@@ -98,7 +98,7 @@
       </div>
       <div class="modal-content submissions">
         <div>
-          <h1 class="modal-heading">Mall Mystery</h1>
+          <h1 class="modal-heading">{{ case.name }}</h1>
         </div>
         <div class="w-layout-hflex flex-block">
           <div data-hover="false" data-delay="0" class="button highlighted-button shrinked w-dropdown">
