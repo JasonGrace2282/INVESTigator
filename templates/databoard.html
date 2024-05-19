@@ -106,7 +106,7 @@
 
       chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
-        $('#license-header').append(data.timestamp + ': ' + data.license +
+        $('#license-header').append(data.timestamp + 's: ' + data.license +
           '(' + data.p + ')'+ '\n');
       };
 
