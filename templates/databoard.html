@@ -61,12 +61,10 @@
             </div>
           </div>
           <div class="div-block-41 license">
-            <h4 class="heading-4">Timestamp: [1:27]</h4>
-            <h4 class="heading-4">License Plate: X17KZH</h4>
-            <h4 class="heading-4">p-value: 0.04, statistically significant</h4>
+            <h4 class="heading-4" id="license-header"></h4>
           </div>
           <div class="div-block-41 facial">
-            <h4 class="heading-4" id="license-header"></h4>
+            <h4 class="heading-4" id="face-header"></h4>
           </div>
           <div class="div-block-41 audio">
             <h4 class="heading-4" id="audio-header"></h4>
@@ -83,20 +81,38 @@
         "{% url 'face-analysis' %}",
         { "path": "{{ imagepath }}" },
         function(response){
-          $( "#license-header" ).html(response["emotion"]);
+          $( "#face-header" ).html(response["emotion"]);
         },
         "json"
       );
 
-    $.get(
-        "{% url 'audio-sentiment' %}",
-        { "path": "{{ audiopath }}" },
-        function(response){
-          $( "#audio-header" ).html(response["sentiment"]);
-        },
-        "json"
+      <!-- $.get( -->
+      <!--   "{% url 'audio-sentiment' %}", -->
+      <!--   { "path": "{{ audiopath }}" }, -->
+      <!--   function(response){ -->
+      <!--     $( "#audio-header" ).html(response["sentiment"]); -->
+      <!--   }, -->
+      <!--   "json" -->
+      <!-- ); -->
+
+      // We use websockets for video processing
+      // Because videos have a tendency to be longer and take more time to process
+      const chatSocket = new WebSocket(
+        'ws://'
+        + window.location.host
+        + '/ws/video/'
+        + '{{ videopath.name }}'
       );
 
+      chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        $('#license-header').append(data.timestamp + ': ' + data.license +
+          '(' + data.p + ')'+ '\n');
+      };
+
+      chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+      };
     </script>
   {% endif %}
 

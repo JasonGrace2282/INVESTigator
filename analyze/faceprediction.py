@@ -46,21 +46,17 @@ def preprocess(image_path: str):
     return image_reshaped
 
 def prediction(image_path: str):
-    model = load_model(Path(__file__).resolve().parent / 'facial_expression_model.h5')
+    model = load_model(Path(__file__).resolve().parent.parent / "ml" / 'facial_expression_model.h5')
     image = preprocess(image_path)
     prediction = model.predict(image)
     label = np.argmax(prediction)
-    if label == 0:
-        return "Angry"
-    if label == 1:
-        return "Angry"
-    if label == 2:
-        return "Fear"
-    if label == 3:
-        return "Sad"
-    if label == 4:
-        return "Fear"
-    if label == 5:
-        return "Surprise"
-    if label == 6:
-        return "Fear"
+    key = {
+        0: "Angry",
+        1: "Angry",
+        2: "Scared",
+        3: "Sad",
+        4: "Scared",
+        5: "Surprised",
+        6: "Scared"
+    }
+    return key[label]

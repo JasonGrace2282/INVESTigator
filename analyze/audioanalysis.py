@@ -20,7 +20,9 @@ def clean_text(text):
     return text
 
 def prediction(text):
-    model = tf.keras.models.load_model(Path(__file__).resolve().parent / 'best_emotion_classification_model.h5')
+    model = tf.keras.models.load_model(
+        Path(__file__).resolve().parent.parent / "ml" / 'best_emotion_classification_model.h5'
+    )
     # Load the dataset
     df = pd.read_csv('tweet_emotions.csv')
 

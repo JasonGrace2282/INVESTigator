@@ -1,4 +1,5 @@
 import string
+import time
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -60,13 +61,13 @@ def read_license_plate(reader: easyocr.Reader, license_plate_crop):
     return None, None
 
 
-def read_frame(video: str) -> Iterable[tuple[str, float]]:
+def read_frame(video: str) -> Iterable[tuple[str, float, float]]:
     # Initialize the OCR reader
     reader = easyocr.Reader(['en'], gpu=False)
 
     # Load models
     license_plate_detector = YOLO(
-        Path(__file__).resolve().parent / 'license_plate_detector.pt',
+        Path(__file__).resolve().parent.parent / "ml" / 'license_plate_detector.pt',
         verbose=False,
     )
 
@@ -74,6 +75,7 @@ def read_frame(video: str) -> Iterable[tuple[str, float]]:
     cap = cv2.VideoCapture(video)
 
     ret = True
+    t0 = time.perf_counter()
     while ret:
         ret, frame = cap.read()
         if ret:
@@ -90,6 +92,6 @@ def read_frame(video: str) -> Iterable[tuple[str, float]]:
 
                 if license_plate_text is not None:
                     print(license_plate_text)
-                    yield license_plate_text, license_plate_text_score
+                    yield license_plate_text, time.perf_counter()-t0, license_plate_text_score
 
     cap.release()
