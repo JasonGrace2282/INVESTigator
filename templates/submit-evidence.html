@@ -62,8 +62,11 @@
                 <textarea class="ms-input ms-text-area w-input" maxlength="5000" name="text" data-name="text" placeholder="e.g. Found suspect at..." id="input21" data-ms-member="FIELD_ID"></textarea>
               </div>
             </div><input type="submit" data-wait="Please wait..." class="button w-button" value="Submit">
-            <input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Images">
-            <input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Videos">
+            <!-- <input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Images"> -->
+            <!-- <input type="submit" data-wait="Please wait..." class="button highlighted-button w-button" value="Upload Videos"> -->
+            {{ form.image }}
+            {{ form.video }}
+            {{ form.audio }}
           </form>
           <div class="w-form-done">
             <div>Thank you! Your submission has been received!</div>
